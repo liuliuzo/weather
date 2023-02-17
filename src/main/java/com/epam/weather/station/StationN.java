@@ -27,10 +27,6 @@ public class StationN implements IObserver {
      */
     private StationNData stationNData = new StationNData();
 
-    public void setReportService(ReportService reportService) {
-        this.reportService = reportService;
-    }
-
     @Override
     public void display() {
         logger.info("current temperature is:{}℃", stationNData.getTemperatureB());

@@ -51,13 +51,21 @@ class ReportServiceTest {
     void testNotifyObservers() {
         ReportService reportService = new ReportService();
         Station1 station1 = new Station1();
-        station1.setReportService(reportService);
         Station2 station2 = new Station2();
-        station2.setReportService(reportService);
         Station3 station3 = new Station3();
-        station3.setReportService(reportService);
         StationN stationN = new StationN();
-        stationN.setReportService(reportService);
+        Field field1 = ReflectionUtils.findField(Station1.class, "reportService");
+        Field field2 = ReflectionUtils.findField(Station2.class, "reportService");
+        Field field3 = ReflectionUtils.findField(Station3.class, "reportService");
+        Field fieldN = ReflectionUtils.findField(StationN.class, "reportService");
+        field1.setAccessible(true);
+        field2.setAccessible(true);
+        field3.setAccessible(true);
+        fieldN.setAccessible(true);
+        ReflectionUtils.setField(field1, station1, reportService);
+        ReflectionUtils.setField(field2, station2, reportService);
+        ReflectionUtils.setField(field3, station3, reportService);
+        ReflectionUtils.setField(fieldN, stationN, reportService);
         reportService.registerObserver(station1);
         reportService.registerObserver(station2);
         reportService.registerObserver(station3);

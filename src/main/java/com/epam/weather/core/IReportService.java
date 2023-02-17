@@ -1,6 +1,7 @@
 package com.epam.weather.core;
 
 /**
+ * the 
  * 
  * @author Liuliu Zhao
  *

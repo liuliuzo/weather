@@ -26,10 +26,6 @@ public class Station2 implements IObserver {
      * Station display data object
      */
     private WeatherData weatherData;
-    
-    public void setReportService(ReportService reportService) {
-        this.reportService = reportService;
-    }
 
     @Override
     public void display() {
